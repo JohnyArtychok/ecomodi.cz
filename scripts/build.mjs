@@ -3,7 +3,7 @@ import { constants } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as sass from 'sass';
-import { build as esbuild } from 'esbuild';
+import { build as esbuild, transform } from 'esbuild';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -156,41 +156,24 @@ async function buildJsBoth(entry, outFile) {
 
 async function buildJsBundle(entries, outFile, minify = false) {
   if (entries.length === 0) return null;
-  
-  // Create a temporary entry file that imports all files
-  const tempEntry = path.join(ROOT, '.tmp', `bundle-${Date.now()}-${Math.random().toString(36).substr(2, 9)}.js`);
-  await mkdir(path.dirname(tempEntry), { recursive: true });
-  
-  const imports = entries
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((entry) => {
-      const importPath = path.relative(path.dirname(tempEntry), entry.file).replace(/\\/g, '/');
-      return `import '${importPath}';`;
-    })
-    .join('\n');
-  
-  await writeFile(tempEntry, imports);
-  
-  try {
-    await mkdir(path.dirname(outFile), { recursive: true });
-    await esbuild({
-      entryPoints: [tempEntry],
-      bundle: true,
-      format: 'esm',
-      platform: 'browser',
-      target: 'es2019',
-      sourcemap: !minify,
-      minify,
-      outfile: outFile
+
+  const sorted = entries.slice().sort((a, b) => a.name.localeCompare(b.name));
+  const contents = await Promise.all(sorted.map((entry) => readFile(entry.file, 'utf8')));
+  const concatenated = contents.join('\n\n');
+
+  await mkdir(path.dirname(outFile), { recursive: true });
+
+  if (minify) {
+    const result = await transform(concatenated, {
+      loader: 'js',
+      minify: true,
+      target: 'es2019'
     });
-    return outFile;
-  } finally {
-    // Clean up temp file
-    try {
-      await unlink(tempEntry);
-    } catch {}
+    await writeFile(outFile, result.code);
+  } else {
+    await writeFile(outFile, concatenated);
   }
+  return outFile;
 }
 
 async function buildJsBundleBoth(entries, outFile) {
