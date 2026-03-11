@@ -1,0 +1,122 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  prepare-deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Read locales config
+        id: set-matrix
+        run: |
+          LOCALES=$(node -e "
+            const fs = require('fs');
+            const config = JSON.parse(fs.readFileSync('config/locales.json', 'utf8'));
+            const locales = config.locales.map(l => ({
+              code: l.code,
+              environment: \`ftp-\${l.code}\`
+            }));
+            console.log(JSON.stringify(locales));
+          ")
+          echo "matrix={\"include\":$LOCALES}" >> $GITHUB_OUTPUT
+
+  deploy:
+    needs: [build, prepare-deploy]
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix: ${{ fromJson(needs.prepare-deploy.outputs.matrix) }}
+      fail-fast: false
+    environment: ${{ matrix.environment }}
+    steps:
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Check if secrets are available
+        id: check-secrets
+        continue-on-error: true
+        run: |
+          # In GitHub Actions, if secret doesn't exist, it's empty string
+          # We check if both are non-empty
+          if [ -n "${{ secrets.FTP_USERNAME }}" ] && [ -n "${{ secrets.FTP_PASSWORD }}" ]; then
+            echo "✅ Secrets available for ${{ matrix.environment }}"
+            echo "available=true" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️  Secrets not configured for ${{ matrix.environment }}"
+            echo "available=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Debug dist contents
+        run: |
+          echo "📁 Listing dist/${{ matrix.code }}:"
+          ls -la dist/${{ matrix.code }} || true
+          echo ""
+          echo "📁 Listing dist/${{ matrix.code }}/css:"
+          ls -la dist/${{ matrix.code }}/css || true
+          echo ""
+          echo "📁 Listing dist/${{ matrix.code }}/js:"
+          ls -la dist/${{ matrix.code }}/js || true
+
+      - name: Deploy CSS & JS for ${{ matrix.code }}
+        if: |
+          hashFiles(format('dist/{0}/css/**', matrix.code)) != '' &&
+          steps.check-secrets.outputs.available == 'true'
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ftp.myshoptet.com
+          port: 22
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          uploads: |
+            dist/${{ matrix.code }}/css/ => jankolonicny/${{ matrix.code }}/css/
+            dist/${{ matrix.code }}/js/ => jankolonicny/${{ matrix.code }}/js/
+
+      - name: Skip deploy – no build output
+        if: ${{ hashFiles(format('dist/{0}/css/**', matrix.code)) == '' }}
+        run: |
+          echo "⚠️  No build artifacts found for ${{ matrix.code }}. Skipping upload."
+
+      - name: Skip deploy – secrets not configured
+        if: |
+          hashFiles(format('dist/{0}/css/**', matrix.code)) != '' &&
+          steps.check-secrets.outputs.available != 'true'
+        run: |
+          echo "⚠️  Skipping deployment for ${{ matrix.code }}: secrets not configured in environment '${{ matrix.environment }}'"
+          echo "💡 To enable deployment, add FTP_USERNAME and FTP_PASSWORD secrets to the '${{ matrix.environment }}' environment in GitHub repository settings."
+

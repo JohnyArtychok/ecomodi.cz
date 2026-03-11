@@ -1,0 +1,20 @@
+{
+  "core": {
+    "code": "core",
+    "label": "Shared base styling and scripts",
+    "prefix": "core"
+  },
+  "locales": [
+    {
+      "code": "cz",
+      "label": "Česko",
+      "prefix": "cz"
+    },
+    {
+      "code": "sk",
+      "label": "Slovensko",
+      "prefix": "sk"
+    }
+  ]
+}
+
