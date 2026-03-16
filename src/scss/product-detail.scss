@@ -216,7 +216,7 @@
                     padding: 12px;
 
                     img {
-                        width: 60px;
+                        width: 80px;
                         max-width: 100%;
                         height: auto;
 
@@ -685,7 +685,7 @@
 
     &-types {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
 
         margin: 52px auto 0;

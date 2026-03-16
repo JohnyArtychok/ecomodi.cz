@@ -600,31 +600,38 @@ var shopDataLayer = {
                             <p>Pratelné inkontinenční prádlo Ecomodi vyrábíme v několika sacích (absorpčních) třídách. Liší se střihem a plochou absorpční části. Nejprodávanější je sací třida silná a extra silná.</p>
                             <div class="absorpction-types">
                                 <div class="absorpction-type">
+                                    <h4>Slabá</h4>
+                                    <img src="/user/documents/upload/kodovani/slaba-absorpce.svg?v=1.01" alt="Střední absorpce">
+                                    <h5>Až <span>30 ml</span> moči (modely Premium)</h5>
+                                    <p>Ideální na běžné nošení během dne. Klín kalhotek je složen z kontaktní savé vrstvy, vnitřní vrstvy zadržující tekutinu a nepropustné membrány.</p>
+                                </div>
+                                <div class="absorpction-type">
                                     <h4>Střední</h4>
-                                    <img src="/user/documents/upload/kodovani/stredni-absorpce.svg" alt="Střední absorpce">
+                                    <img src="/user/documents/upload/kodovani/stredni-absorpce.svg?v=1.01" alt="Střední absorpce">
                                     <h5>Až <span>30 ml</span> moči (modely Premium)</h5>
                                     <p>Ideální na běžné nošení během dne. Klín kalhotek je složen z kontaktní savé vrstvy, vnitřní vrstvy zadržující tekutinu a nepropustné membrány.</p>
                                 </div>
                                 <div class="absorpction-type">
                                     <h4>Silná</h4>
-                                    <img src="/user/documents/upload/kodovani/silna-absorpce.svg" alt="Silná absorpce">
+                                    <img src="/user/documents/upload/kodovani/silna-absorpce.svg?v=1.01" alt="Silná absorpce">
                                     <h5>Až <span>50 ml</span> moči (modely Premium)</h5>
                                     <p>Ideální na běžné nošení během dne. Klín kalhotek je složen z kontaktní savé vrstvy, vnitřní zesílené vrstvy zadržující tekutinu a nepropustné membrány.</p>
                                 </div>
                                 <div class="absorpction-type">
                                     <h4>Extra silná</h4>
-                                    <img src="/user/documents/upload/kodovani/extra-silna-absorpce.svg" alt="Extra silná absorpce">
+                                    <img src="/user/documents/upload/kodovani/extra-silna-absorpce.svg?v=1.01" alt="Extra silná absorpce">
                                     <h5>Až <span>100 ml</span> moči (modely Premium)</h5>
-                                    <p>Kromě denního nošení je tato třída vhodná i na noc. POZOR tento typ prádla má na zadní straně zvýšený klín. Klín je složen z kontaktní savé vrstvy, vnitřní zesílené vrstvy zadržující tekutinu a nepropustné membrány.</p>
+                                    <p>Kromě denního nošení je tato třída vhodná i na noc. POZOR tento typ prádla má na zadní straně zvýšený klín. Klín je složen z kontaktní savé vrstvy, vnitřní zesílené vrstvy zadržující tekutinu a nepropustné membrány.</p>
                                 </div>
                             </div>
                         </div>
+
                     `,
                     options: {
-                        26: "/user/documents/upload/kodovani/stredni-absorpce.svg",
-                        29: "/user/documents/upload/kodovani/stredni-absorpce.svg",
-                        14: "/user/documents/upload/kodovani/silna-absorpce.svg",
-                        32: "/user/documents/upload/kodovani/extra-silna-absorpce.svg"
+                        26: "/user/documents/upload/kodovani/slaba-absorpce.svg?v=1.01",
+                        29: "/user/documents/upload/kodovani/stredni-absorpce.svg?v=1.01",
+                        14: "/user/documents/upload/kodovani/silna-absorpce.svg?v=1.01",
+                        32: "/user/documents/upload/kodovani/extra-silna-absorpce.svg?v=1.01"
                     }
                 },
             ]
