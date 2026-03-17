@@ -1,0 +1,137 @@
+.newsletter-wrap {
+    background: linear-gradient(135deg, #B46471 0%, #AD6874 7.14%, #A76C78 14.29%, #A06F7B 21.43%, #99727E 28.57%, #917581 35.71%, #8A7884 42.86%, #817B88 50%, #797D8B 57.14%, #6F808E 64.29%, #658291 71.43%, #5A8494 78.57%, #4D8697 85.71%, #3E889A 92.86%, #288A9D 100%);;
+
+    form {
+
+        &::after {
+            content: none;
+        }
+    }
+
+    .custom-footer__newsletter {
+        display: flex;
+        flex-direction: column;
+        
+        padding: 0;
+        margin-block: 80px !important;
+
+        background-color: transparent;
+
+        @media (max-width: 1600px){
+            margin-block: 40px !important;
+        }
+
+        @media (max-width: 499px){
+            margin-block: 24px !important;
+        }
+        
+        &::before {
+            content: none;
+        }
+
+        form {
+            margin-top: 28px;
+        }
+
+        fieldset {
+            justify-content: center;
+
+            padding: 0;
+
+            @media (max-width: 767px){
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            br {
+                @media (max-width: 767px){
+                    display: none;
+                }
+            }
+        }
+
+        .validator-msg-holder {
+            width: 308px;
+            max-width: 100%;
+        }
+
+        input[type='email'] {
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.20);
+            background: rgba(255, 255, 255, 0.10);
+            color: #fff;
+            font-size: var(--size-body);
+
+            &::placeholder {
+                color: #fff;
+                font-weight: 400;
+            }
+        }
+
+        button[type='submit'] {
+            border-radius: 8px;
+            border: 2px solid #FFF;
+            color: #fff;
+            font-weight: 500;
+            background-color: transparent;
+            font-size: var(--size-body);
+
+            @media (max-width: 767px){
+                margin: 0;
+                width: 100%;
+            }
+
+            &:hover {
+                background-color: #fff;
+                color: #000;
+            }
+        }
+
+        .consents {
+
+            label {
+                text-align: center;
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+
+    .newsletter-header {
+
+        &::before {
+            display: block;
+
+            content: "";
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.20);
+            background-image: url("/user/documents/upload/kodovani/mail.svg");
+            background-size: 32px;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            @media (max-width: 1199px){
+                width: 48px;
+                height: 48px;
+                background-size: 24px;
+                margin-block: 0 16px;
+            }
+        }
+
+        h3 {
+            margin-block: 0 16px;
+            color: #fff;
+        }
+
+        .newsletter-subtitle {
+            max-width: 650px;
+            margin-inline: auto;
+
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.62;
+        }
+    }
+}

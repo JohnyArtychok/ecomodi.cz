@@ -13,6 +13,7 @@
         --size-h1: 38px;
         --size-h2: 36px;
         --size-h3: 30px;
+        --size-h4: 24px;
     }
 }
 
@@ -21,6 +22,7 @@
         --size-h1: 36px;
         --size-h2: 34px;
         --size-h3: 28px;
+        --size-h4: 22px;
     }
 }
 
@@ -37,6 +39,7 @@
         --size-h1: 26px;
         --size-h2: 24px;
         --size-h3: 20px;
+        --size-h4: 18px;
         --size-body: 14px;
     }
 }
@@ -44,6 +47,7 @@
 @media (max-width: 767px){
     :root {
         --size-h2: 26px;
+        --size-h4: 17px;
     }
 }
 
