@@ -1,7 +1,7 @@
 var shopDataLayer = {
     footer: {
         newsletter: {
-            title: "Získejte 15% slevu na první nákup",
+            title: "Buďte v suchu i v obraze",
             icon: "/user/documents/upload/kodovani/mail.svg",
             subtitle: "Přihlaste se k odběru našeho newsletteru a získejte exkluzivní slevy, tipy a novinky přímo do vaší schránky",
             placeholder: "Váš e-mail",
