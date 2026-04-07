@@ -46,31 +46,31 @@ var shopDataLayer = {
                         <td>S</td>
                         <td>64 – 69 cm</td>
                         <td>87 – 94 cm</td>
-                        <td>29–32 cm / 22 cm</td>
+                        <td>31–34 cm / 23 cm</td>
                     </tr>
                     <tr>
                         <td>M</td>
                         <td>69 – 74 cm</td>
                         <td>93 – 101 cm</td>
-                        <td>29–32 cm / 22 cm</td>
+                        <td>33–37 cm / 24 cm</td>
                     </tr>
                     <tr>
                         <td>L</td>
                         <td>74 – 80 cm</td>
                         <td>101 – 109 cm</td>
-                        <td>29–32 cm / 22 cm</td>
+                        <td>36–39 cm / 25 cm</td>
                     </tr>
                     <tr>
                         <td>XL</td>
                         <td>79 – 85 cm</td>
                         <td>107 – 115 cm</td>
-                        <td>29–32 cm / 22 cm</td>
+                        <td>38–42 cm / 27 cm</td>
                     </tr>
                     <tr>
                         <td>XXL</td>
                         <td>85 – 92 cm</td>
                         <td>115 – 124 cm</td>
-                        <td>29–32 cm / 22 cm</td>
+                        <td>41–45 cm / 28 cm</td>
                     </tr>
                 </tbody>
             </table>
@@ -477,6 +477,156 @@ var shopDataLayer = {
 </div>`
                         },
                         {
+                            type: "premium-extra-klasicke",
+                            content: `<div class="sizes" data-strih="premium-extra-klasicke">
+    <h2>Velikostní tabulka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Velikost</th>
+                        <th>Obvod pasu</th>
+                        <th>Obvod boků</th>
+                        <th><span class="size-table__ref">A/B</span> Rozměry kalhotek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>do 59 cm</td>
+                        <td>do 80 cm</td>
+                        <td>26,5 / 21 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>60 – 64 cm</td>
+                        <td>81 – 87 cm</td>
+                        <td>29 / 22 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>64 – 69 cm</td>
+                        <td>87 – 94 cm</td>
+                        <td>31 / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>69 – 74 cm</td>
+                        <td>93 – 101 cm</td>
+                        <td>33 / 24 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 80 cm</td>
+                        <td>101 – 109 cm</td>
+                        <td>36 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>79 – 85 cm</td>
+                        <td>107 – 115 cm</td>
+                        <td>38 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>85 – 92 cm</td>
+                        <td>115 – 124 cm</td>
+                        <td>41 / 28 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozměry uvádíme pro možnost porovnání s padnoucím spodním prádlem. Jedná se o šířku nenatažené gumy kalhotek / výšku kalhotek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/klasicky-strih.png" alt="Klasický střih Premium">
+            <span class="sizes-right__note">Klasický střih Premium</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "premium-extra-vysoke",
+                            content: `<div class="sizes" data-strih="premium-extra-vysoke">
+    <h2>Velikostní tabulka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Velikost</th>
+                        <th>Obvod pasu</th>
+                        <th>Obvod boků</th>
+                        <th><span class="size-table__ref">A/B</span> Rozměry kalhotek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>58 – 62 cm</td>
+                        <td>78 – 85 cm</td>
+                        <td>28 / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>63 – 68 cm</td>
+                        <td>86 – 94 cm</td>
+                        <td>31 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>68 – 73 cm</td>
+                        <td>93 – 100 cm</td>
+                        <td>33 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 79 cm</td>
+                        <td>100 – 109 cm</td>
+                        <td>36 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>78 – 84 cm</td>
+                        <td>107 – 114 cm</td>
+                        <td>38 / 29 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>83 – 89 cm</td>
+                        <td>113 – 121 cm</td>
+                        <td>40 / 31 cm</td>
+                    </tr>
+                    <tr>
+                        <td>3XL</td>
+                        <td>89 – 95 cm</td>
+                        <td>121 – 130 cm</td>
+                        <td>43 / 32 cm</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>94 – 100 cm</td>
+                        <td>127 – 136 cm</td>
+                        <td>45 / 34 cm</td>
+                    </tr>
+                    <tr>
+                        <td>5XL</td>
+                        <td>98 – 105 cm</td>
+                        <td>133 – 142 cm</td>
+                        <td>47 / 35 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozměry uvádíme pro možnost porovnání s padnoucím spodním prádlem. Jedná se o šířku nenatažené gumy kalhotek / výšku kalhotek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/vysoky-pas.png" alt="Vysoký pas Premium">
+            <span class="sizes-right__note">Vysoký pas Premium</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
                             type: "boxerky",
                             content: `<div class="sizes" data-strih="boxerky">
     <h2>Velikostní tabulka</h2>
@@ -606,30 +756,30 @@ var shopDataLayer = {
                     linkContent: `
                         <div class="absorpction">
                             <h2>Jakou absorbci zvolit?</h2>
-                            <p>Pratelné inkontinenční prádlo Ecomodi vyrábíme v několika sacích (absorpčních) třídách. Liší se střihem a plochou absorpční části. Nejprodávanější je sací třida silná a extra silná.</p>
+                            <p>Pratelné menstruační a inkontinenční prádlo Ecomodi vyrábíme v několika sacích (absorpčních) třídách. Liší se střihem a plochou absorpční části. Nejprodávanější je sací třida silná a extra silná.</p>
                             <div class="absorpction-types">
                                 <div class="absorpction-type">
                                     <h4>Slabá</h4>
-                                    <img src="/user/documents/upload/kodovani/slaba-absorpce.svg?v=1.01" alt="Střední absorpce">
-                                    <h5>Až <span>30 ml</span> moči (modely Premium)</h5>
-                                    <p>Ideální na běžné nošení během dne. Klín kalhotek je složen z kontaktní savé vrstvy, vnitřní vrstvy zadržující tekutinu a nepropustné membrány.</p>
+                                    <img src="/user/documents/upload/kodovani/slaba-absorpce.svg?v=1.01" alt="Slabá absorpce">
+                                    <h5>Až <span>30 ml</span></h5>
+                                    <p>Hodí se, když „své dny" teprve očekáváte nebo když už menstruace končí. Odpovídá savosti slipové vložky. Vhodné jako pojistka ke kalíšku nebo tamponu.</p>
                                 </div>
                                 <div class="absorpction-type">
                                     <h4>Střední</h4>
                                     <img src="/user/documents/upload/kodovani/stredni-absorpce.svg?v=1.01" alt="Střední absorpce">
-                                    <h5>Až <span>30 ml</span> moči (modely Premium)</h5>
+                                    <h5>Až <span>30 ml</span></h5>
                                     <p>Ideální na běžné nošení během dne. Klín kalhotek je složen z kontaktní savé vrstvy, vnitřní vrstvy zadržující tekutinu a nepropustné membrány.</p>
                                 </div>
                                 <div class="absorpction-type">
                                     <h4>Silná</h4>
                                     <img src="/user/documents/upload/kodovani/silna-absorpce.svg?v=1.01" alt="Silná absorpce">
-                                    <h5>Až <span>50 ml</span> moči (modely Premium)</h5>
+                                    <h5>Až <span>50 ml</span></h5>
                                     <p>Ideální na běžné nošení během dne. Klín kalhotek je složen z kontaktní savé vrstvy, vnitřní zesílené vrstvy zadržující tekutinu a nepropustné membrány.</p>
                                 </div>
                                 <div class="absorpction-type">
                                     <h4>Extra silná</h4>
                                     <img src="/user/documents/upload/kodovani/extra-silna-absorpce.svg?v=1.01" alt="Extra silná absorpce">
-                                    <h5>Až <span>100 ml</span> moči (modely Premium)</h5>
+                                    <h5>Až <span>100 ml</span></h5>
                                     <p>Kromě denního nošení je tato třída vhodná i na noc. POZOR tento typ prádla má na zadní straně zvýšený klín. Klín je složen z kontaktní savé vrstvy, vnitřní zesílené vrstvy zadržující tekutinu a nepropustné membrány.</p>
                                 </div>
                             </div>
