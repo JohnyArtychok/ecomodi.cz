@@ -8,6 +8,9 @@ var shopDataLayer = {
             
         },
     },
+    blog: {
+        similarArticlesHeading: "Podobné články",
+    },
     productDetail: {
         readWholeDescription: "Přečíst detailní popisek",
         tabs: {

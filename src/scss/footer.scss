@@ -137,3 +137,17 @@
         }
     }
 }
+
+
+#footer {
+
+    .custom-footer {
+
+        > div {
+
+            @media (min-width: 1200px){
+                width: 25%;
+            }
+        }
+    }
+}
