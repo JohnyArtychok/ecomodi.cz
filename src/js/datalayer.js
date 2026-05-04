@@ -1,4 +1,4 @@
-var shopDataLayer = {
+var csShopDataLayer = {
     footer: {
         newsletter: {
             title: "Buďte v suchu i v obraze",
@@ -800,3 +800,811 @@ var shopDataLayer = {
         }
     }
 };
+
+
+var skShopDataLayer = {
+    footer: {
+        newsletter: {
+            title: "Buďte v suchu aj v obraze",
+            icon: "/user/documents/upload/kodovani/mail.svg",
+            subtitle: "Prihláste sa na odber nášho newslettera a získajte exkluzívne zľavy, tipy a novinky priamo do vašej schránky",
+            placeholder: "Váš e-mail",
+            
+        },
+    },
+    blog: {
+        similarArticlesHeading: "Podobné články",
+    },
+    productDetail: {
+        readWholeDescription: "Prečítať detailný popis",
+        tabs: {
+            descriptionTab: "Popis produktu",
+            parametersTab: "Parametre",
+        },
+        variants: {
+            addedInfo: [
+                {
+                    id: 5,
+                    linkText: "Ako vybrať správnu veľkosť?",
+                    linkContent: [
+                        {
+                            type: "premium",
+                            content: `<div class="sizes" data-strih="premium">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th>Rozmery nohavičiek*</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>60 – 64 cm</td>
+                        <td>81 – 87 cm</td>
+                        <td>29–32 cm / 22 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>64 – 69 cm</td>
+                        <td>87 – 94 cm</td>
+                        <td>31–34 cm / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>69 – 74 cm</td>
+                        <td>93 – 101 cm</td>
+                        <td>33–37 cm / 24 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 80 cm</td>
+                        <td>101 – 109 cm</td>
+                        <td>36–39 cm / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>79 – 85 cm</td>
+                        <td>107 – 115 cm</td>
+                        <td>38–42 cm / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>85 – 92 cm</td>
+                        <td>115 – 124 cm</td>
+                        <td>41–45 cm / 28 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/strih-premium.png" alt="Strih Premium">
+            <span class="sizes-right__note">Rozopínací strih PREMIUM</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "extra-vysoke-pohodlne",
+                            content: `<div class="sizes" data-strih="extra-vysoke-pohodlne">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>60 – 64 cm</td>
+                        <td>81 – 88 cm</td>
+                        <td>29 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>65 – 70 cm</td>
+                        <td>88 – 95 cm</td>
+                        <td>31,5 / 29 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>70 – 75 cm</td>
+                        <td>95 – 103 cm</td>
+                        <td>34 / 31 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>76 – 82 cm</td>
+                        <td>103 – 111 cm</td>
+                        <td>37 / 33 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>80 – 86 cm</td>
+                        <td>109 – 118 cm</td>
+                        <td>39 / 35 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>84 – 91 cm</td>
+                        <td>115 – 124 cm</td>
+                        <td>41 / 36 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>91 – 98 cm</td>
+                        <td>123 – 133 cm</td>
+                        <td>44 / 37 cm</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>97 – 104 cm</td>
+                        <td>132 – 142 cm</td>
+                        <td>47 / 39 cm</td>
+                    </tr>
+                    <tr>
+                        <td>5XL</td>
+                        <td>101 – 109 cm</td>
+                        <td>137 – 148 cm</td>
+                        <td>49 / 40 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/extra-vysoke-pohodlne.png" alt="Strih Extra vysoké pohodlné">
+            <span class="sizes-right__note">Extra vysoké pohodlné</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "klasicky-strih",
+                            content: `<div class="sizes" data-strih="klasicky-strih">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>do 59 cm</td>
+                        <td>do 80 cm</td>
+                        <td>26,5 / 21 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>60 – 64 cm</td>
+                        <td>81 – 87 cm</td>
+                        <td>29 / 22 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>65 – 70 cm</td>
+                        <td>88 – 95 cm</td>
+                        <td>31,5 / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>70 – 76 cm</td>
+                        <td>95 – 102 cm</td>
+                        <td>34 / 24 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>75 – 81 cm</td>
+                        <td>102 – 110 cm</td>
+                        <td>36,5 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>80 – 87 cm</td>
+                        <td>109 – 118 cm</td>
+                        <td>39 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>86 – 93 cm</td>
+                        <td>117 – 127 cm</td>
+                        <td>42 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>93 – 100 cm</td>
+                        <td>126 – 136 cm</td>
+                        <td>45 / 29 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/klasicky-strih.png" alt="Strih Klasický">
+            <span class="sizes-right__note">Klasický strih</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "vysoky-pas",
+                            content: `<div class="sizes" data-strih="vysoky-pas">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>do 58 cm</td>
+                        <td>do 79 cm</td>
+                        <td>26 / 22 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>58 – 62 cm</td>
+                        <td>78 – 85 cm</td>
+                        <td>28 / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>63 – 68 cm</td>
+                        <td>86 – 94 cm</td>
+                        <td>31 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>68 – 73 cm</td>
+                        <td>93 – 100 cm</td>
+                        <td>33 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 79 cm</td>
+                        <td>100 – 109 cm</td>
+                        <td>36 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>78 – 84 cm</td>
+                        <td>107 – 114 cm</td>
+                        <td>38 / 29 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>84 – 91 cm</td>
+                        <td>115 – 124 cm</td>
+                        <td>41 / 31 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>90 – 97 cm</td>
+                        <td>123 – 131 cm</td>
+                        <td>44 / 32 cm</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>95 – 102 cm</td>
+                        <td>129 – 139 cm</td>
+                        <td>46 / 34 cm</td>
+                    </tr>
+                    <tr>
+                        <td>5XL</td>
+                        <td>99 – 107 cm</td>
+                        <td>135 – 145 cm</td>
+                        <td>48 / 35 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/vysoky-pas.png" alt="Strih Vysoký pás">
+            <span class="sizes-right__note">Vysoký pás</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "nohavickove",
+                            content: `<div class="sizes" data-strih="nohavickove">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>do 59 cm</td>
+                        <td>do 80 cm</td>
+                        <td>26,5 / 24 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>60 – 64 cm</td>
+                        <td>81 – 87 cm</td>
+                        <td>29 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>65 – 70 cm</td>
+                        <td>88 – 95 cm</td>
+                        <td>31,5 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>70 – 76 cm</td>
+                        <td>95 – 102 cm</td>
+                        <td>34 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>75 – 81 cm</td>
+                        <td>102 – 110 cm</td>
+                        <td>36,5 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>80 – 87 cm</td>
+                        <td>109 – 118 cm</td>
+                        <td>39 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>86 – 93 cm</td>
+                        <td>117 – 127 cm</td>
+                        <td>42 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>93 – 100 cm</td>
+                        <td>126 – 136 cm</td>
+                        <td>45 / 29 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/nohavickove.png" alt="Strih Nohavičkové">
+            <span class="sizes-right__note">Nohavičkové</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "tanga",
+                            content: `<div class="sizes" data-strih="tanga">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>do 56 cm</td>
+                        <td>do 76 cm</td>
+                        <td>25 / 16 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>55 – 60 cm</td>
+                        <td>76 – 82 cm</td>
+                        <td>27 / 18 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>59 – 64 cm</td>
+                        <td>81 – 87 cm</td>
+                        <td>29 / 20 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>64 – 69 cm</td>
+                        <td>87 – 94 cm</td>
+                        <td>31 / 21 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>70 – 75 cm</td>
+                        <td>95 – 102 cm</td>
+                        <td>34 / 22 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>74 – 80 cm</td>
+                        <td>101 – 109 cm</td>
+                        <td>36 / 24 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>78 – 84 cm</td>
+                        <td>107 – 115 cm</td>
+                        <td>38 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>84 – 91 cm</td>
+                        <td>115 – 124 cm</td>
+                        <td>41 / 27 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/tanga.png" alt="Strih Tangá">
+            <span class="sizes-right__note">Tangá</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "premium-extra-klasicke",
+                            content: `<div class="sizes" data-strih="premium-extra-klasicke">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>do 59 cm</td>
+                        <td>do 80 cm</td>
+                        <td>26,5 / 21 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>60 – 64 cm</td>
+                        <td>81 – 87 cm</td>
+                        <td>29 / 22 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>64 – 69 cm</td>
+                        <td>87 – 94 cm</td>
+                        <td>31 / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>69 – 74 cm</td>
+                        <td>93 – 101 cm</td>
+                        <td>33 / 24 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 80 cm</td>
+                        <td>101 – 109 cm</td>
+                        <td>36 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>79 – 85 cm</td>
+                        <td>107 – 115 cm</td>
+                        <td>38 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>85 – 92 cm</td>
+                        <td>115 – 124 cm</td>
+                        <td>41 / 28 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/klasicky-strih.png" alt="Klasický strih Premium">
+            <span class="sizes-right__note">Klasický strih Premium</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "premium-extra-vysoke",
+                            content: `<div class="sizes" data-strih="premium-extra-vysoke">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>58 – 62 cm</td>
+                        <td>78 – 85 cm</td>
+                        <td>28 / 23 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>63 – 68 cm</td>
+                        <td>86 – 94 cm</td>
+                        <td>31 / 25 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>68 – 73 cm</td>
+                        <td>93 – 100 cm</td>
+                        <td>33 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 79 cm</td>
+                        <td>100 – 109 cm</td>
+                        <td>36 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>78 – 84 cm</td>
+                        <td>107 – 114 cm</td>
+                        <td>38 / 29 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>83 – 89 cm</td>
+                        <td>113 – 121 cm</td>
+                        <td>40 / 31 cm</td>
+                    </tr>
+                    <tr>
+                        <td>3XL</td>
+                        <td>89 – 95 cm</td>
+                        <td>121 – 130 cm</td>
+                        <td>43 / 32 cm</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>94 – 100 cm</td>
+                        <td>127 – 136 cm</td>
+                        <td>45 / 34 cm</td>
+                    </tr>
+                    <tr>
+                        <td>5XL</td>
+                        <td>98 – 105 cm</td>
+                        <td>133 – 142 cm</td>
+                        <td>47 / 35 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/vysoky-pas.png" alt="Vysoký pás Premium">
+            <span class="sizes-right__note">Vysoký pás Premium</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "boxerky",
+                            content: `<div class="sizes" data-strih="boxerky">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu (CM)</th>
+                        <th><span class="size-table__ref">A/B</span> * Nenatiahnutý rozmer bielizne v páse (CM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>66 – 72</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>72 – 80</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>80 – 88</td>
+                        <td>37,5</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>88 – 96</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>96 – 104</td>
+                        <td>42,5</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>104 – 112</td>
+                        <td>45,5</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>112 – 120</td>
+                        <td>48</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy.</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/boxerky.png" alt="Strih Boxerky">
+            <span class="sizes-right__note">Pánske inkontinenčné prateľné BOXERKY</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "slipy",
+                            content: `<div class="sizes" data-strih="slipy">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu (CM)</th>
+                        <th><span class="size-table__ref">A/B</span> * Nenatiahnutý rozmer bielizne v páse (CM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XS</td>
+                        <td>66 – 72</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>72 – 80</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>80 – 88</td>
+                        <td>37,5</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>88 – 96</td>
+                        <td>40,5</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>96 – 104</td>
+                        <td>43</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>104 – 112</td>
+                        <td>45,5</td>
+                    </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>112 – 120</td>
+                        <td>48</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy.</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/slipy.png" alt="Strih Slipy">
+            <span class="sizes-right__note">Pánske inkontinenčné prateľné SLIPY </span>
+        </div>
+    </div>
+</div>`
+                        }
+                    ],
+                },
+                {
+                    id: 17,
+                    linkText: "Akú absorpciu zvoliť?",
+                    linkContent: `
+                        <div class="absorpction">
+                            <h2>Akú absorpciu zvoliť?</h2>
+                            <p>Prateľnú menštruačnú a inkontinenčnú bielizeň Ecomodi vyrábame v niekoľkých sacích (absorpčných) triedach. Líšia sa strihom a plochou absorpčnej časti. Najpredávanejšia je sacia trieda silná a extra silná.</p>
+                            <div class="absorpction-types">
+                                <div class="absorpction-type">
+                                    <h4>Slabá</h4>
+                                    <img src="/user/documents/upload/kodovani/slaba-absorpce.svg?v=1.01" alt="Slabá absorpcia">
+                                    <h5>Až <span>30 ml</span></h5>
+                                    <p>Hodí sa, keď „svoje dni" ešte len očakávate alebo keď už menštruácia končí. Zodpovedá savosti slipovej vložky. Vhodné ako poistka ku kalíšku alebo tampónu.</p>
+                                </div>
+                                <div class="absorpction-type">
+                                    <h4>Stredná</h4>
+                                    <img src="/user/documents/upload/kodovani/stredni-absorpce.svg?v=1.01" alt="Stredná absorpcia">
+                                    <h5>Až <span>30 ml</span></h5>
+                                    <p>Ideálna na bežné nosenie počas dňa. Klin nohavičiek je zložený z kontaktnej savej vrstvy, vnútornej vrstvy zadržiavajúcej tekutinu a nepriepustnej membrány.</p>
+                                </div>
+                                <div class="absorpction-type">
+                                    <h4>Silná</h4>
+                                    <img src="/user/documents/upload/kodovani/silna-absorpce.svg?v=1.01" alt="Silná absorpcia">
+                                    <h5>Až <span>50 ml</span></h5>
+                                    <p>Ideálna na bežné nosenie počas dňa. Klin nohavičiek je zložený z kontaktnej savej vrstvy, vnútornej zosilnenej vrstvy zadržiavajúcej tekutinu a nepriepustnej membrány.</p>
+                                </div>
+                                <div class="absorpction-type">
+                                    <h4>Extra silná</h4>
+                                    <img src="/user/documents/upload/kodovani/extra-silna-absorpce.svg?v=1.01" alt="Extra silná absorpcia">
+                                    <h5>Až <span>100 ml</span></h5>
+                                    <p>Okrem denného nosenia je táto trieda vhodná aj na noc. POZOR, tento typ bielizne má na zadnej strane zvýšený klin. Klin je zložený z kontaktnej savej vrstvy, vnútornej zosilnenej vrstvy zadržiavajúcej tekutinu a nepriepustnej membrány.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    `,
+                    options: {
+                        26: "/user/documents/upload/kodovani/slaba-absorpce.svg?v=1.01",
+                        29: "/user/documents/upload/kodovani/stredni-absorpce.svg?v=1.01",
+                        14: "/user/documents/upload/kodovani/silna-absorpce.svg?v=1.01",
+                        32: "/user/documents/upload/kodovani/extra-silna-absorpce.svg?v=1.01"
+                    }
+                },
+            ]
+        }
+    }
+};
+
+
+// Aktivní datalayer podle aktuálního jazyka stránky
+var shopDataLayer = getShoptetDataLayer().language === "sk" ? skShopDataLayer : csShopDataLayer;
