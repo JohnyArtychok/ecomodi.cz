@@ -189,6 +189,107 @@ $(document).ready(function() {
         }
     });
 
+    // Videa v galerii: parametry "Video", "Video 2", "Video 3" → thumbnaily od 2. pozice, klik otevře overlay s videem (reels chování)
+    const videoUrls = [];
+    $(".extended-description .detail-parameters tr").each(function () {
+        const $row = $(this);
+        const labelText = $row.find("th .row-header-label").text().replace(/\s*:\s*$/, "").trim();
+        if (/^Video( \d)?$/.test(labelText)) {
+            const videoUrl = $row.find("td").text().trim();
+            if (videoUrl && videoUrls.length < 3) {
+                videoUrls.push(videoUrl);
+            }
+            $row.hide();
+        }
+    });
+
+    if (videoUrls.length) {
+        const $thumbnailsContainer = $(".p-thumbnails-inner > div").first();
+        let $anchor = $thumbnailsContainer.children(".p-thumbnail").first();
+
+        videoUrls.forEach(function (videoUrl) {
+            const $videoThumbnail = $("<a href='#' class='video-thumbnail'></a>").attr("data-video", videoUrl);
+            if ($anchor.length) {
+                $videoThumbnail.insertAfter($anchor);
+            } else if ($thumbnailsContainer.length) {
+                $videoThumbnail.appendTo($thumbnailsContainer);
+            }
+            $anchor = $videoThumbnail;
+        });
+    }
+
+    function pauseOverlayVideo($overlay) {
+        const video = $overlay.find("video")[0];
+        if (video) {
+            video.pause();
+        }
+    }
+
+    $(document).on("click", ".video-thumbnail", function (e) {
+        e.preventDefault();
+        const videoUrl = $(this).attr("data-video");
+        const $existingOverlay = $(".myoverlay[data-video-overlay]").filter(function () {
+            return $(this).attr("data-video") === videoUrl;
+        });
+
+        if ($existingOverlay.length) {
+            $existingOverlay.fadeIn(300);
+            const video = $existingOverlay.find("video")[0];
+            if (video && video.paused) {
+                video.play();
+            }
+            return;
+        }
+
+        const $overlay = $("<div class='myoverlay myoverlay--video' data-video-overlay></div>")
+            .attr("data-video", videoUrl)
+            .css("display", "none");
+        const $video = $("<video>", {
+            src: videoUrl,
+            autoplay: true,
+            loop: true,
+            playsinline: true,
+            "webkit-playsinline": true
+        });
+        const $overlayInner = $("<div class='myoverlay-inner'></div>");
+        $overlayInner.append($("<div class='myoverlay-close'></div>"));
+        $overlayInner.append($video);
+        $overlay.append($("<div class='myoverlay-wrapper'></div>").append($overlayInner));
+        $(".overall-wrapper").append($overlay);
+        $overlay.fadeIn(300);
+    });
+
+    // Klik na video = pauza / přehrání
+    $(document).on("click", ".myoverlay--video video", function () {
+        if (this.paused) {
+            this.play();
+        } else {
+            this.pause();
+        }
+    });
+
+    // Pauza videa při zavření overlay — fadeOut řeší obecné .myoverlay handlery výše
+    $(document).on("click", ".myoverlay--video .myoverlay-close", function () {
+        pauseOverlayVideo($(this).closest(".myoverlay"));
+    });
+
+    $(document).on("click", ".myoverlay--video .myoverlay-wrapper", function (e) {
+        if ($(e.target).is(".myoverlay-wrapper")) {
+            pauseOverlayVideo($(this).closest(".myoverlay"));
+        }
+    });
+
+    // ESC zavře video overlay
+    $(document).on("keydown", function (e) {
+        if (e.key === "Escape") {
+            const $videoOverlay = $(".myoverlay--video:visible");
+            if ($videoOverlay.length) {
+                pauseOverlayVideo($videoOverlay);
+                $videoOverlay.fadeOut(300);
+            }
+        }
+    });
+
     // Slick carousel souvisejících produktů: zničit a znovu nastavit na 3 viditelné slidy (po chvíli, až ho theme inicializuje)
     function reinitRelatedSlick() {
         var $related = $(".products.products-related.slick-initialized, .products.products-additional.slick-initialized");

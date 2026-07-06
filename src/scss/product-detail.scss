@@ -534,6 +534,87 @@
             }
         }
     }
+
+    &--video {
+
+        .myoverlay-inner {
+            max-height: none;
+            padding: 0;
+            overflow: visible;
+
+            background-color: #000;
+
+            video {
+                display: block;
+
+                max-width: 90vw;
+                max-height: calc(100vh - 80px);
+
+                cursor: pointer;
+
+                @media (max-width: 767px){
+                    max-width: calc(100vw - 40px);
+                    max-height: calc(100vh - 40px);
+                }
+            }
+        }
+
+        .myoverlay-close {
+            color: #fff;
+
+            &:hover {
+                color: #B46471;
+            }
+        }
+    }
+}
+
+.video-thumbnail {
+    // šablona nastavuje thumbnailům display i rozměry s !important — bez přepisu se obsah nevycentruje
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 8px;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 8px;
+    background-color: rgba(180, 100, 113, .12);
+    text-decoration: none !important;
+
+    &::before {
+        display: inline-block;
+
+        content: "";
+        width: 30px;
+        height: 30px;
+
+        mask-image: url("/user/documents/upload/kodovani/video.svg");
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        -webkit-mask-image: url("/user/documents/upload/kodovani/video.svg");
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        background-color: #B46471;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+        transform: scale(1.1);
+    }
+
+    &::after {
+        content: "video";
+
+        color: #B46471;
+        font-size: 13px;
+        line-height: 1;
+        font-weight: 700;
+    }
 }
 
 .sizes {
