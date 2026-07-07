@@ -190,13 +190,18 @@ $(document).ready(function() {
     });
 
     // Videa v galerii: parametry "Video", "Video 2", "Video 3" → thumbnaily od 2. pozice, klik otevře overlay s videem (reels chování)
+    // Jazykové mutace: "Video:cz" / "Video:sk 2" apod. se zobrazí jen v daném jazyce; "Video" bez prefixu ve všech jazycích
+    const shopLanguage = getShoptetDataLayer().language;
+    const videoLanguage = shopLanguage === "cs" ? "cz" : shopLanguage;
     const videoUrls = [];
     $(".extended-description .detail-parameters tr").each(function () {
         const $row = $(this);
         const labelText = $row.find("th .row-header-label").text().replace(/\s*:\s*$/, "").trim();
-        if (/^Video( \d)?$/.test(labelText)) {
+        const labelMatch = labelText.match(/^Video(?::([a-z]{2}))?( \d)?$/i);
+        if (labelMatch) {
+            const rowLanguage = labelMatch[1] ? labelMatch[1].toLowerCase() : null;
             const videoUrl = $row.find("td").text().trim();
-            if (videoUrl && videoUrls.length < 3) {
+            if (videoUrl && videoUrls.length < 3 && (!rowLanguage || rowLanguage === videoLanguage)) {
                 videoUrls.push(videoUrl);
             }
             $row.hide();
