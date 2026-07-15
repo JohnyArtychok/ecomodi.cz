@@ -827,7 +827,7 @@
             margin-right: 16px;
         }
     
-        &[data-testid="tabDiscussion"], &[data-testid="tabRating"] {
+        &[data-testid="tabDiscussion"] {
             display: none;
         }
 
@@ -907,6 +907,426 @@
     }
 }
 
+#ratingTab {
+
+    h2 {
+        margin-block: 0 24px;
+
+        font-size: 32px;
+        font-weight: 600;
+
+        @media (max-width: 1199px){
+            font-size: 26px;
+        }
+
+        @media (max-width: 767px){
+            font-size: 22px;
+        }
+
+        // nadpis dostává focus po prokliku záložky (tabindex="-1") — outline tu nedává smysl
+        &:focus {
+            outline: none;
+        }
+    }
+
+    // prázdný stav — produkt zatím bez recenzí
+    > p[data-testid="textCommentNotice"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+
+        padding: 40px 20px;
+        margin-bottom: 40px;
+
+        background-color: #ECF1F3;
+        border-radius: 10px;
+        text-align: center;
+        font-size: var(--size-bigger);
+        line-height: 1.5;
+
+        @media (max-width: 991px){
+            padding: 24px 20px;
+            margin-bottom: 24px;
+        }
+
+        &::before {
+            content: "★ ★ ★ ★ ★";
+
+            color: #F5A623;
+            font-size: 22px;
+            letter-spacing: 6px;
+            line-height: 1;
+        }
+    }
+
+    // souhrn — průměrná známka, hvězdy, histogram
+    .rate-wrap {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px 80px;
+
+        margin-bottom: 8px;
+
+        @media (max-width: 991px){
+            gap: 20px 40px;
+        }
+    }
+
+    .rate-average-wrap {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+
+        margin: 0;
+    }
+
+    .rate-average {
+        font-size: 56px;
+        font-weight: 600;
+        line-height: 1;
+        color: #1E1E1C;
+
+        @media (max-width: 991px){
+            font-size: 44px;
+        }
+    }
+
+    .rate-star-wrap {
+        gap: 6px;
+
+        margin: 0;
+    }
+
+    // šablona skládá hvězdy jako float s pevnou šířkou wrapperu a glyfem v ::before,
+    // který má vlastní font-size i barvu — proto přepis rozměrů i barvy na pseudo-elementu
+    .stars {
+        width: auto;
+        height: auto;
+
+        .star {
+            width: 20px;
+            height: 19px;
+
+            line-height: 1;
+
+            &::before {
+                display: block;
+
+                // rating-fix doplněk barví glyf hvězdy na ::before s !important — bez přepisu zůstávají hvězdy tmavé
+                color: inherit !important;
+                font-size: 19px;
+                line-height: 1;
+            }
+
+            &.star-on {
+                color: #F5A623;
+            }
+
+            &.star-off {
+                color: #DADADA;
+            }
+        }
+    }
+
+    .stars-label {
+        display: block;
+
+        color: #717182;
+        font-size: var(--size-small);
+    }
+
+    // histogram rozpadu hvězdiček — doplněk rating-fix ho skrývá, vracíme zpět
+    #ratingWrapper .rate-wrap .votes {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        width: 100%;
+        max-width: 420px;
+
+        .rate-list {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rate-star {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+            flex-shrink: 0;
+
+            width: 36px;
+
+            .star {
+                width: 14px;
+                height: 13px;
+
+                color: #F5A623;
+
+                &::before {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .rate-value {
+            font-size: var(--size-small);
+            font-weight: 600;
+        }
+
+        .rate-block {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+
+            // místo pro počet hodnocení ukotvený napravo od baru
+            padding-right: 44px;
+        }
+
+        .rate-bar {
+            flex-grow: 1;
+
+            position: relative;
+            height: 8px;
+
+            background-color: #ECF1F3;
+            border-radius: 999px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: var(--rate-bar-width, 0%);
+                height: 100%;
+
+                background-color: #F5A623;
+                border-radius: 999px;
+            }
+        }
+
+        // počet je v markup uvnitř .rate-bar — vytahujeme ho napravo vedle baru
+        .rate-count {
+            position: absolute;
+            top: 50%;
+            left: calc(100% + 12px);
+            transform: translateY(-50%);
+
+            color: #717182;
+            font-size: var(--size-small);
+            line-height: 1;
+        }
+    }
+
+    .add-comment {
+        margin-block: 24px 40px;
+    }
+
+    // tlačítka "Přidat hodnocení" a "Odeslat hodnocení" — recept .mybtn-primary
+    .add-comment .btn,
+    .vote-form .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        min-height: 50px;
+        padding: 8px 40px;
+
+        background-color: #288A9D;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: var(--size-body);
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        @media (max-width: 991px){
+            min-height: 44px;
+            padding: 8px 20px;
+        }
+
+        &:hover {
+            background-color: #2f5c65;
+        }
+    }
+
+    // formulář pro přidání hodnocení
+    .vote-form {
+        max-width: 640px;
+        margin-block: 24px 40px;
+
+        h3 {
+            margin-block: 0 20px;
+
+            font-size: var(--size-h4);
+            font-weight: 600;
+        }
+
+        .form-legend {
+            margin-bottom: 16px;
+
+            color: #717182;
+            font-size: var(--size-small);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+
+            label {
+                margin-bottom: 6px;
+
+                font-weight: 500;
+            }
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+
+            background-color: #fff;
+            border: 1px solid #EDEDED;
+            border-radius: 8px;
+            font-size: var(--size-body);
+            transition: border-color 0.3s ease;
+
+            &:focus {
+                border-color: #288A9D;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .rating-stars-description {
+            font-weight: 500;
+        }
+
+        .rating-star {
+            color: #F5A623;
+
+            &::before {
+                // rating-fix doplněk barví glyf hvězdy na ::before s !important — viz .stars výše
+                color: inherit !important;
+            }
+        }
+
+        .consents {
+            color: #717182;
+            font-size: var(--size-small);
+
+            a {
+                color: inherit;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .btn-primary {
+            // šablona nastavuje pevnou výšku 55px — recept tlačítka řídí min-height
+            height: auto;
+        }
+    }
+
+    // výpis recenzí — karty jako .testimonial
+    #ratingsList {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        margin: 0;
+
+        .vote-wrap {
+            padding: 32px;
+            margin: 0;
+
+            background-color: #fff;
+            border: 1px solid #EDEDED;
+            border-radius: 10px;
+
+            @media (max-width: 991px){
+                padding: 20px;
+            }
+        }
+
+        .vote-header {
+            align-items: center;
+
+            margin-bottom: 16px;
+        }
+
+        .vote-pic {
+            padding: 0 16px 0 0;
+
+            .vote-initials {
+                width: 48px;
+                height: 48px;
+
+                background-color: #ECF1F3;
+                border: none;
+                color: #288A9D;
+            }
+
+            img {
+                width: 48px;
+                height: 48px;
+
+                border-radius: 50%;
+            }
+        }
+
+        .vote-rating {
+            align-items: center;
+            gap: 12px;
+
+            .star {
+                width: 17px;
+                height: 16px;
+
+                &::before {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .vote-time {
+            color: #717182;
+            font-size: var(--size-small);
+        }
+
+        .vote-content {
+            padding: 0;
+            margin: 0;
+
+            font-size: var(--size-body);
+            line-height: 1.625;
+            color: #1E1E1C;
+        }
+
+        .heureka-rating-group {
+            margin-bottom: 12px;
+
+            font-weight: 500;
+
+            &.plus {
+                color: #288A9D;
+            }
+
+            &.minus {
+                color: #B46471;
+            }
+        }
+    }
+}
+
 #tab-content {
 
     > div {
@@ -920,12 +1340,6 @@
         &:last-child {
             margin-bottom: 0;
         }
-    }
-
-    #ratingTab {
-        display: none;
-        opacity: 1;
-
     }
 }
 
