@@ -1,7 +1,7 @@
 import chokidar from 'chokidar';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readFile, copyFile, mkdir, access } from 'node:fs/promises';
+import { readFile, writeFile, copyFile, mkdir, access } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { buildAll } from './build.mjs';
 
@@ -18,6 +18,77 @@ function extractLocalPath(fileUrl) {
   // Remove file:// protocol only, keep query string in filename
   let localPath = fileUrl.replace(/^file:\/\//, '');
   return localPath;
+}
+
+const OVERRIDES_SEGMENT = `${path.sep}Overrides${path.sep}`;
+
+async function updateSyncVersions() {
+  let syncConfig;
+  try {
+    syncConfig = JSON.parse(await readFile(SYNC_CONFIG_PATH, 'utf8'));
+  } catch {
+    // Config doesn't exist or is invalid, skip version check
+    return;
+  }
+
+  if (!Array.isArray(syncConfig) || syncConfig.length === 0) {
+    return;
+  }
+
+  const htmlCache = new Map();
+  let changed = false;
+
+  for (const entry of syncConfig) {
+    if (!entry.target) continue;
+
+    const targetPath = extractLocalPath(entry.target);
+    const overridesIndex = targetPath.indexOf(OVERRIDES_SEGMENT);
+    const versionMatch = targetPath.match(/\?v=([^?]+)$/);
+    if (overridesIndex === -1 || !versionMatch) continue;
+
+    // Overrides path mirrors the URL: .../Overrides/<host>/<url path>?v=<version>
+    const relative = targetPath.slice(overridesIndex + OVERRIDES_SEGMENT.length);
+    const [host, ...urlParts] = relative.split(path.sep);
+    const urlPath = '/' + urlParts.join('/').replace(/\?v=.*$/, '');
+
+    if (!htmlCache.has(host)) {
+      let html = null;
+      try {
+        const response = await fetch(`https://${host}/`);
+        if (response.ok) {
+          html = await response.text();
+        }
+      } catch {}
+      htmlCache.set(host, html);
+      if (html === null) {
+        console.warn(`[version] ⚠️  Could not fetch https://${host}/ — keeping versions from sync config`);
+      }
+    }
+    const html = htmlCache.get(host);
+    if (html === null) continue;
+
+    const escapedPath = urlPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const liveMatch = html.match(new RegExp(`${escapedPath}\\?v=([^"'&]+)`));
+    if (!liveMatch) {
+      console.warn(`[version] ⚠️  ${urlPath} not referenced in https://${host}/ head — keeping ?v=${versionMatch[1]}`);
+      continue;
+    }
+
+    const fileName = urlPath.split('/').pop();
+    if (liveMatch[1] === versionMatch[1]) {
+      console.log(`[version] ${fileName}: ?v=${versionMatch[1]} matches live shop`);
+      continue;
+    }
+
+    entry.target = entry.target.replace(/\?v=[^?]+$/, `?v=${liveMatch[1]}`);
+    console.log(`[version] ${fileName}: ?v=${versionMatch[1]} -> ?v=${liveMatch[1]} (live shop moved on, sync target updated)`);
+    changed = true;
+  }
+
+  if (changed) {
+    await writeFile(SYNC_CONFIG_PATH, JSON.stringify(syncConfig, null, 2) + '\n', 'utf8');
+    console.log('[version] sync.config.json updated');
+  }
 }
 
 async function syncFiles() {
@@ -101,6 +172,10 @@ async function runBuild(reason = 'manual') {
     }
   }
 }
+
+// Check live shop head for current ?v= versions BEFORE the first build/sync,
+// so we never write into a stale version file
+await updateSyncVersions();
 
 await runBuild('initial');
 
