@@ -313,4 +313,40 @@ $(document).ready(function() {
         });
     }
     setTimeout(reinitRelatedSlick, 150);
+
+    // Upsell blok „Doporučujeme k produktu" (doplněk Upsell) vkládá JS doplňku až po načtení stránky
+    // pod košíkové tlačítko — na desktopu ho přesouváme ke galerii
+    if ($(".type-detail").length > 0) {
+        const $upsellAnchor = $("<span class='myupsell-anchor'></span>");
+
+        function moveUpsellBlock() {
+            const $upsell = $(".up-product-wrapper");
+            if (!$upsell.length || !$(".p-image-wrapper").length) {
+                return;
+            }
+
+            if (window.innerWidth > 767) {
+                if (!$upsell.parent().is(".p-image-wrapper")) {
+                    // Značka původního místa, ať se má blok při zúžení okna kam vrátit
+                    if (!$upsellAnchor.parent().length) {
+                        $upsellAnchor.insertBefore($upsell);
+                    }
+                    $upsell.appendTo(".p-image-wrapper");
+                }
+            } else if ($upsellAnchor.parent().length && $upsell.parent().is(".p-image-wrapper")) {
+                $upsell.insertAfter($upsellAnchor);
+            }
+        }
+
+        // Doplněk hlásí vykreslení bloku vlastními eventy na document
+        moveUpsellBlock();
+        document.addEventListener("UpsellProductRendered", moveUpsellBlock);
+        document.addEventListener("UpsellProductChanged", moveUpsellBlock);
+
+        let upsellResizeTimer;
+        $(window).on("resize", function () {
+            clearTimeout(upsellResizeTimer);
+            upsellResizeTimer = setTimeout(moveUpsellBlock, 200);
+        });
+    }
 });

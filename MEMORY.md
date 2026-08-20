@@ -10,8 +10,15 @@
 - Formulář `#rate-form` řídí JS třídami `.js-hidden`/`.visible`; u produktu bez recenzí se zobrazuje automaticky rozbalený a bez `h3`. Prázdný stav = `p[data-testid="textCommentNotice"]` přímý potomek `#ratingTab`.
 - `h2` v tabu dostává focus (tabindex="-1") po prokliku záložky → `outline: none`.
 
+## Doplněk Upsell (blok „Doporučujeme k produktu")
+
+- Blok `.up-product-wrapper[data-up-position="bellow_add_to_cart_button"]` vkládá až po načtení stránky skript doplňku `cdn.myshoptet.com/usr/honzabartos.myshoptet.com/user/documents/script.js` — v HTML ze serveru není.
+- Doplněk vystřeluje **vlastní CustomEventy na `document`** (bubbles: true, data v `detail`): `UpsellRendered` (obecný, po každém renderu), `UpsellProductRendered`, `UpsellProductChanged`, `UpsellCartRendered`, `UpsellCartChanged`, `UpsellCartServicesRendered`, `UpsellBannersRendered`, `UpsellGiftsRendered`, `UpsellGiftsChanged`, `UpsellAddonAddedToCart`. **MutationObserver není potřeba.**
+- Na desktopu (>767px) blok přesouváme do `.p-image-wrapper` (`product-detail.js`) — původní místo drží JS značka `.myupsell-anchor`, při zúžení okna se blok vrací zpět (debounced resize).
+
 ## Dev prostředí
 
 - Chrome DevTools MCP je globálně připojený na port **9222**, ale shoptet-dev projekt `ecomodi` běží na portu **9231** → vytvořen `.mcp.json` v rootu projektu (projeví se po restartu Claude Code). Bez něj MCP ovládá jiný prohlížeč bez override interceptů.
 - Override soubory v `~/Developer/Overrides/www.ecomodi.cz/.../style.min.css?v=1.093` mají otazník v názvu souboru — shell příkazy vyžadují quoting.
 - `npm run dev` (watch.mjs) builduje dist a syncuje do Overrides dle `sync.config.json`.
+- watch.mjs si **při startu, před prvním buildem/syncem**, stáhne HTML živého webu (host odvozen z Overrides cesty targetu) a porovná `?v=` verze v hlavičce s targety v `sync.config.json` — při rozdílu config přepíše na aktuální verzi (log `[version]`). Nikdy tak nepíše do zastaralého version souboru; staré `?v=` soubory v Overrides zůstávají ležet, nemaže je.
