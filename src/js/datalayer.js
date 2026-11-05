@@ -537,6 +537,12 @@ var csShopDataLayer = {
                         <td>115 – 124 cm</td>
                         <td>41 / 28 cm</td>
                     </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>89 – 96 cm</td>
+                        <td>121 – 130 cm</td>
+                        <td>43 / 29 cm</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="special">Rozměry uvádíme pro možnost porovnání s padnoucím spodním prádlem. Jedná se o šířku nenatažené gumy kalhotek / výšku kalhotek</div>
@@ -617,6 +623,12 @@ var csShopDataLayer = {
                         <td>98 – 105 cm</td>
                         <td>133 – 142 cm</td>
                         <td>47 / 35 cm</td>
+                    </tr>
+                    <tr>
+                        <td>6XL</td>
+                        <td>105 – 113 cm</td>
+                        <td>143 – 154 cm</td>
+                        <td>51 / 36 cm</td>
                     </tr>
                 </tbody>
             </table>
@@ -1341,6 +1353,12 @@ var skShopDataLayer = {
                         <td>115 – 124 cm</td>
                         <td>41 / 28 cm</td>
                     </tr>
+                    <tr>
+                        <td>XXXL</td>
+                        <td>89 – 96 cm</td>
+                        <td>121 – 130 cm</td>
+                        <td>43 / 29 cm</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
@@ -1421,6 +1439,12 @@ var skShopDataLayer = {
                         <td>98 – 105 cm</td>
                         <td>133 – 142 cm</td>
                         <td>47 / 35 cm</td>
+                    </tr>
+                    <tr>
+                        <td>6XL</td>
+                        <td>105 – 113 cm</td>
+                        <td>143 – 154 cm</td>
+                        <td>51 / 36 cm</td>
                     </tr>
                 </tbody>
             </table>
