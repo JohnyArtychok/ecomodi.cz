@@ -60,11 +60,11 @@ $(document).ready(function() {
                     matchedType = info.valueToType[strihVal] || info.valueToType[String(strihVal)];
                 }
             }
-            if (!matchedType && types.length) matchedType = types[0];
-            $th.wrapInner("<span>");
-            var $action = $("<span>").addClass("variant-action").attr("data-variant-id", info.id).text(info.linkText);
-            if (matchedType) $action.attr("data-link", matchedType);
-            $th.append($action);
+            // Bez zadaného typu (např. ponožky) odkaz na velikostní tabulku nepřidáváme
+            if (matchedType) {
+                $th.wrapInner("<span>");
+                $th.append($("<span>").addClass("variant-action").attr("data-variant-id", info.id).attr("data-link", matchedType).text(info.linkText));
+            }
         } else if (info && info.linkText) {
             $th.wrapInner("<span>");
             $th.append($("<span>").addClass("variant-action").attr("data-variant-id", info.id).text(info.linkText));
