@@ -405,6 +405,93 @@ var csShopDataLayer = {
 </div>`
                         },
                         {
+                            type: "nohavickove-premium",
+                            content: `<div class="sizes" data-strih="nohavickove-premium">
+    <h2>Velikostní tabulka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Velikost</th>
+                        <th>Obvod pasu</th>
+                        <th>Obvod boků</th>
+                        <th><span class="size-table__ref">A/B</span> Rozměry kalhotek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>53 – 58 cm</td>
+                        <td>73 – 79 cm</td>
+                        <td>26 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>58 – 62 cm</td>
+                        <td>78 – 85 cm</td>
+                        <td>28 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>62 – 67 cm</td>
+                        <td>84 – 91 cm</td>
+                        <td>30 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>68 – 73 cm</td>
+                        <td>92 – 100 cm</td>
+                        <td>33 / 29 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 80 cm</td>
+                        <td>101 – 109 cm</td>
+                        <td>36 / 30 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>78 – 84 cm</td>
+                        <td>106 – 115 cm</td>
+                        <td>38 / 31 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>82 – 89 cm</td>
+                        <td>112 – 121 cm</td>
+                        <td>40 / 32 cm</td>
+                    </tr>
+                    <tr>
+                        <td>3XL</td>
+                        <td>88 – 95 cm</td>
+                        <td>120 – 130 cm</td>
+                        <td>43 / 33 cm</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>93 – 100 cm</td>
+                        <td>126 – 136 cm</td>
+                        <td>45 / 34 cm</td>
+                    </tr>
+                    <tr>
+                        <td>5XL</td>
+                        <td>99 – 107 cm</td>
+                        <td>134 – 145 cm</td>
+                        <td>48 / 35 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozměry uvádíme pro možnost porovnání s padnoucím spodním prídlem. Jedná se o šířku nenatažené gumy kalhotek / výšku kalhotek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/nohavickove.png" alt="Strih Nohavičkové Premium">
+            <span class="sizes-right__note">Nohavičkové Premium</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
                             type: "tanga",
                             content: `<div class="sizes" data-strih="tanga">
     <h2>Velikostní tabulka</h2>
@@ -1216,6 +1303,93 @@ var skShopDataLayer = {
         <div class="sizes-right">
             <img src="/user/documents/upload/kodovani/strihy/nohavickove.png" alt="Strih Nohavičkové">
             <span class="sizes-right__note">Nohavičkové</span>
+        </div>
+    </div>
+</div>`
+                        },
+                        {
+                            type: "nohavickove-premium",
+                            content: `<div class="sizes" data-strih="nohavickove-premium">
+    <h2>Veľkostná tabuľka</h2>
+    <div class="sizes-inner">
+        <div class="sizes-left">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Veľkosť</th>
+                        <th>Obvod pásu</th>
+                        <th>Obvod bokov</th>
+                        <th><span class="size-table__ref">A/B</span> Rozmery nohavičiek *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XXS</td>
+                        <td>53 – 58 cm</td>
+                        <td>73 – 79 cm</td>
+                        <td>26 / 26 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XS</td>
+                        <td>58 – 62 cm</td>
+                        <td>78 – 85 cm</td>
+                        <td>28 / 27 cm</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>62 – 67 cm</td>
+                        <td>84 – 91 cm</td>
+                        <td>30 / 28 cm</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>68 – 73 cm</td>
+                        <td>92 – 100 cm</td>
+                        <td>33 / 29 cm</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>74 – 80 cm</td>
+                        <td>101 – 109 cm</td>
+                        <td>36 / 30 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>78 – 84 cm</td>
+                        <td>106 – 115 cm</td>
+                        <td>38 / 31 cm</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>82 – 89 cm</td>
+                        <td>112 – 121 cm</td>
+                        <td>40 / 32 cm</td>
+                    </tr>
+                    <tr>
+                        <td>3XL</td>
+                        <td>88 – 95 cm</td>
+                        <td>120 – 130 cm</td>
+                        <td>43 / 33 cm</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>93 – 100 cm</td>
+                        <td>126 – 136 cm</td>
+                        <td>45 / 34 cm</td>
+                    </tr>
+                    <tr>
+                        <td>5XL</td>
+                        <td>99 – 107 cm</td>
+                        <td>134 – 145 cm</td>
+                        <td>48 / 35 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="special">Rozmery uvádzame pre možnosť porovnania s padnúcou spodnou bielizňou. Jedná sa o šírku nenatiahnutej gumy nohavičiek / výšku nohavičiek</div>
+        </div>
+        <div class="sizes-right">
+            <img src="/user/documents/upload/kodovani/strihy/nohavickove.png" alt="Strih Nohavičkové Premium">
+            <span class="sizes-right__note">Nohavičkové Premium</span>
         </div>
     </div>
 </div>`
